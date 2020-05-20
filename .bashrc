@@ -43,8 +43,16 @@ GRAY=$(tput setaf 242)
 BOLD=$(tput bold)
 RESET=$(tput sgr0)
 
+check_usr() {
+    if [ $USER == 'home' ]; then echo 🏠; else echo $USER; fi
+}
+
+check_homedir() {
+    if [ $PWD == $HOME ]; then echo 🌴; else echo ${PWD##*/}; fi
+}
+
 # Custom Prompt Script
-PS1="\[$BOLD$GRAY\]\t\[$RESET $CYAN\]\[`if [ $USER = 'home' ]; then echo 🏠; else echo '\u'; fi`\]\[$GRAY\] at \[$CYAN\]\h: \[$ORANGE\]\W "
+PS1="\[$BOLD$GRAY\]\t\[$RESET $CYAN\]\$(check_usr)\[$GRAY\] at \[$CYAN\]\h: \[$ORANGE\]\$(check_homedir) "
 PS1+='$(__git_ps1 "\[$GRAY\]git:\[$CYAN\]%s ")'
 PS1+="\n👉\[$RESET\] "
 
