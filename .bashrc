@@ -2,33 +2,8 @@ source ~/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUPSTREAM="verbose"
 
-# Setting PATH for Python 3.7
-# The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
-export PATH
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Exporting Android SDK
-ANDROID_SDK="/Users/home/Library/Android/sdk"
-export ANDROID_SDK
-export PATH=/Users/home/Library/Android/sdk/platform-tools:$PATH
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-
-# nvm
-export PATH="/Users/home/.nvm/versions/node/v13.8.0/bin:$PATH"
-
-# LaTeX
-export PATH=$PATH:/Users/home/Library/TeX/texbin
-
 # Custom aliases
-alias la="ls -A"
+alias la="ls -a"
 alias pls="sudo"
 alias ..="cd .."
 alias cl="clear"
@@ -44,17 +19,21 @@ BOLD=$(tput bold)
 RESET=$(tput sgr0)
 
 check_usr() {
-    if [ $USER == 'home' ]; then echo 🏠; else echo $USER; fi
+    [ "$USER" == 'home' ] && echo 🏠 || echo "$USER"
 }
 
 check_homedir() {
-    if [ $PWD == $HOME ]; then echo 🌴; else echo ${PWD##*/}; fi
+    [ "$PWD" == "$HOME" ] && echo 🌴 || ([ "$PWD" == "/" ] && echo 🦴) || echo "${PWD##*/}"
 }
 
 # Custom Prompt Script
 PS1="\[$BOLD$GRAY\]\t\[$RESET $CYAN\]\$(check_usr)\[$GRAY\] at \[$CYAN\]\h: \[$ORANGE\]\$(check_homedir) "
-PS1+='$(__git_ps1 "\[$GRAY\]git:\[$CYAN\]%s ")'
-PS1+="\n👉\[$RESET\] "
+PS1+='$(__git_ps1 "\[$GRAY\]git:\[$CYAN\]%s ")\n👉'
+PS1+="\[$RESET\] "
+
+export CLICOLOR=1
 
 export PS1
+export PS2="﹥"
+export PS4="✚"
 
