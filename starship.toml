@@ -1,0 +1,60 @@
+# ORANGE = 166
+# GRAY = 242
+
+add_newline = false
+
+format = """
+$time\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$package\
+$cmake\
+$dart\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$purescript\
+$python\
+$ruby\
+$rust\
+$swift\
+$zig\
+$aws\
+$env_var\
+$crystal\
+$cmd_duration\
+$line_break\
+$character"""
+
+[character]
+success_symbol = "👉"
+error_symbol = "🔥"
+
+[time]
+format = "[$time]($style) "
+style = "242 bold"
+disabled = false
+
+[directory]
+format = "[$path]($style)[$read_only]($read_only_style) "
+truncation_length = 2
+style = "166"
+
+[git_branch]
+format = "[$symbol](green)[$branch]($style) "
+style = "cyan"
+
+[java]
+style="red"
