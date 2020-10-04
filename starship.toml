@@ -9,6 +9,7 @@ $directory\
 $git_branch\
 $git_commit\
 $git_state\
+$git_status\
 $package\
 $cmake\
 $dart\
@@ -55,6 +56,9 @@ style = "166"
 [git_branch]
 format = "[$symbol](green)[$branch]($style) "
 style = "cyan"
+
+[git_status]
+style="242"
 
 [java]
 style="red"
