@@ -1,5 +1,8 @@
-# oh-my-zsh export
-export ZSH="/Users/home/.oh-my-zsh"
+# oh-my-zsh export MACOS
+# export ZSH="/Users/home/.oh-my-zsh"
+
+# oh-my-zsh export LINUX
+export ZSH="/home/navinn/.oh-my-zsh"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
