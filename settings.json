@@ -1,0 +1,92 @@
+// __        ___           _                     _____                   _             _
+// \ \      / (_)_ __   __| | _____      _____  |_   _|__ _ __ _ __ ___ (_)_ __   __ _| |
+//  \ \ /\ / /| | '_ \ / _` |/ _ \ \ /\ / / __|   | |/ _ \ '__| '_ ` _ \| | '_ \ / _` | |
+//   \ V  V / | | | | | (_| | (_) \ V  V /\__ \   | |  __/ |  | | | | | | | | | | (_| | |
+//    \_/\_/  |_|_| |_|\__,_|\___/ \_/\_/ |___/   |_|\___|_|  |_| |_| |_|_|_| |_|\__,_|_|
+// ---              
+// For documentation on these settings, see: https://aka.ms/terminal-documentation
+// To view the default settings, hold "alt" while clicking on the "Settings" button.
+// ---
+{
+  "$schema": "https://aka.ms/terminal-profiles-schema",
+  "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+  // To learn more about global settings, visit https://aka.ms/terminal-global-settings
+  "copyOnSelect": false,
+  "copyFormatting": false,
+  // A profile specifies a command to execute paired with information about how it should look and feel.
+  // Each one of them will appear in the 'New Tab' dropdown, and can be invoked from the commandline with `wt.exe -p xxx`
+  // To learn more about profiles, visit https://aka.ms/terminal-profile-settings
+  "profiles": {
+    "defaults": {
+      "background": "#0F1417",
+      "useAcrylic": true,
+      "acrylicOpacity": 0.8,
+      "cursorColor": "#FFFFFF",
+      "cursor": "bar",
+      "padding": "10, 10, 10, 10",
+      "antialiasingMode": "cleartype",
+      "font": {
+        "face": "Fira Code",
+        "size": 14,
+        "weight": "normal",
+        "features": {
+          "cv02": 1,
+          "cv14": 1,
+          "cv25": 1,
+          "cv26": 1,
+          "cv28": 1,
+          "cv32": 1,
+          "ss02": 1,
+          "ss03": 1,
+          "ss05": 1,
+          "ss07": 1,
+          "ss09": 1,
+	        "liga": 1
+        }
+      }
+    },
+    "list": [
+      {
+        "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+        "hidden": false,
+        "name": "Ubuntu",
+        "source": "Windows.Terminal.Wsl",
+        "startingDirectory": "\\\\wsl$\\Ubuntu\\home\\navinn"
+      },
+      {
+        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+        "name": "Windows PowerShell",
+        "commandline": "powershell.exe",
+        "hidden": false
+      },
+      {
+        "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+        "name": "Command Prompt",
+        "commandline": "cmd.exe",
+        "hidden": false
+      },
+      {
+        "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+        "hidden": true,
+        "name": "Azure Cloud Shell",
+        "source": "Windows.Terminal.Azure"
+      }
+    ]
+  },
+  // To learn more about color schemes, visit https://aka.ms/terminal-color-schemes
+  "schemes": [],
+  // To learn more about actions and keybindings, visit https://aka.ms/terminal-keybindings
+  "actions": [
+    // These two lines additionally bind them to Ctrl+C and Ctrl+V.
+    // To learn more about selection, visit https://aka.ms/terminal-selection
+    { "command": {"action": "copy", "singleLine": false }, "keys": "ctrl+c" },
+    { "command": "paste", "keys": "ctrl+v" },
+    // Press Ctrl+Shift+F to open the search box
+    { "command": "find", "keys": "ctrl+shift+f" },
+    // Press Alt+Shift+D to open a new pane.
+    // - "split": "auto" makes this pane open in the direction that provides the most surface area.
+    // - "splitMode": "duplicate" makes the new pane use the focused pane's profile.
+    // To learn more about panes, visit https://aka.ms/terminal-panes
+    { "command": { "action": "splitPane", "split": "auto", "splitMode": "duplicate" }, "keys": "alt+shift+d" }
+  ]
+}
